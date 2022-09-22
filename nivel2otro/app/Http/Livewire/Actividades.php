@@ -44,13 +44,15 @@ class Actividades extends Component
     public function store()
     {
         $this->validate([
-		'descripcion' => 'required',
-		'fechaActividad' => 'required',
+		'descripcion' => 'email|max:10',
+		'fechaActividad' => 'required|date',
 		'area' => 'required',
 		'idEmpleado' => ['required','numeric'],
         ],[
             'required'=>'Campo requerido',
-            'numeric'=>'Solo datos numericos'
+            'numeric'=>'Solo datos numericos',
+            'max'=>'Maximo 10 caracteres',
+            'date'=>'Formato de fecha incorrecto'
         ]);
 
         Actividade::create([
