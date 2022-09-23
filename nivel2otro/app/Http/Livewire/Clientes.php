@@ -21,7 +21,7 @@ class Clientes extends Component
     protected function rules(){
         return [
             'nombre' => 'regex:/w3schools/i',
-		    'apellidos' => 'required',
+		    'apellidos' => 'regex:/[a-z0-9](3)/',
 		    'direccion' => 'required',
 		    'email' => 'regex:^[\w.+\-]+@gmail\.com$
         '
