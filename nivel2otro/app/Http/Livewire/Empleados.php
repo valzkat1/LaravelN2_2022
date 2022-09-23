@@ -14,6 +14,17 @@ class Empleados extends Component
     public $selected_id, $keyWord, $nombre, $edad;
     public $updateMode = false;
 
+    protected $rules =[
+        'nombre' => 'required',
+		'edad' => 'required|digits_between:1,2'
+
+    ];
+
+    protected $messages=[
+        'required' => 'Campo Obligado',
+        'digits_between'=>'No mayores a 99..'
+    ];
+
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
@@ -24,31 +35,33 @@ class Empleados extends Component
 						->paginate(10),
         ]);
     }
-	
+
     public function cancel()
     {
         $this->resetInput();
         $this->updateMode = false;
     }
-	
+
     private function resetInput()
-    {		
+    {
 		$this->nombre = null;
 		$this->edad = null;
     }
 
     public function store()
     {
-        $this->validate([
+
+        $this->validate();
+      /*   $this->validate([
 		'nombre' => 'required',
 		'edad' => 'required',
-        ]);
+        ]); */
 
-        Empleado::create([ 
+        Empleado::create([
 			'nombre' => $this-> nombre,
 			'edad' => $this-> edad
         ]);
-        
+
         $this->resetInput();
 		$this->emit('closeModal');
 		session()->flash('message', 'Empleado Successfully created.');
@@ -58,23 +71,37 @@ class Empleados extends Component
     {
         $record = Empleado::findOrFail($id);
 
-        $this->selected_id = $id; 
+        $this->selected_id = $id;
 		$this->nombre = $record-> nombre;
 		$this->edad = $record-> edad;
-		
+
         $this->updateMode = true;
+    }
+
+
+    public function updated($propertyname){
+
+        $this->validateOnly($propertyname);
+    }
+
+    public function guardarEmpleado(){
+
+        $validateData=$this->validate();
+        Empleados::create($validateData);
+
     }
 
     public function update()
     {
-        $this->validate([
-		'nombre' => 'required',
-		'edad' => 'required',
-        ]);
+        $this->validate();
+        /*   $this->validate([
+          'nombre' => 'required',
+          'edad' => 'required',
+          ]); */
 
         if ($this->selected_id) {
 			$record = Empleado::find($this->selected_id);
-            $record->update([ 
+            $record->update([
 			'nombre' => $this-> nombre,
 			'edad' => $this-> edad
             ]);

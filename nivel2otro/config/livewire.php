@@ -54,7 +54,9 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/GitLaravelN2/LaravelN2_2022/nivel2otro/public',
+    //'asset_url' => 'http://localhost/GitLaravelN2/LaravelN2_2022/nivel2otro/public',
+
+    'asset_url'=> null,
 
     /*
     |--------------------------------------------------------------------------
