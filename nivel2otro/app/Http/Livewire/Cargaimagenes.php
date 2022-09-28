@@ -68,6 +68,13 @@ class Cargaimagenes extends Component
         $this->updateMode = true;
     }
 
+    
+   public function desacargar($id){
+
+        $record = Cargaimagene::findOrFail($id);
+        return response()->download(storage_path('app/public/imagenes/'.$record->imagen));
+
+   }
     public function update()
     {
         $this->validate([

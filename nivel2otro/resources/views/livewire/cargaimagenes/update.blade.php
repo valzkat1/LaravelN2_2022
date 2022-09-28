@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updateModalLabel">Update Cargaimagene</h5>
+                <h5 class="modal-title" id="updateModalLabel">Actualizar Imagenes</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span wire:click.prevent="cancel()" aria-hidden="true">×</span>
                 </button>
@@ -16,8 +16,12 @@
                 <input wire:model="nombreimagen" type="text" class="form-control" id="nombreimagen" placeholder="Nombreimagen">@error('nombreimagen') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
+                <img src="{{ asset('storage/imagenes/'.$imagen) }}"  width="80">
+            </div>
+
+            <div class="form-group">
                 <label for="imagen"></label>
-                <input wire:model="imagen" type="text" class="form-control" id="imagen" placeholder="Imagen">@error('imagen') <span class="error text-danger">{{ $message }}</span> @enderror
+                <input wire:model="imagen" type="file" class="form-control" id="imagen" placeholder="Imagen">@error('imagen') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
 
                 </form>
