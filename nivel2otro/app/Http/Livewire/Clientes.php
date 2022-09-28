@@ -20,11 +20,10 @@ class Clientes extends Component
 
     protected function rules(){
         return [
-            'nombre' => 'regex:/w3schools/i',
-		    'apellidos' => 'regex:/[a-z0-9](3)/',
+            'nombre' => 'required|min:3',
+		    'apellidos' => 'required|min:3',
 		    'direccion' => 'required',
-		    'email' => 'regex:^[\w.+\-]+@gmail\.com$
-        '
+		    'email' => 'regex:/^[\w.+\-]+@gmail\.com$/'
         ];
     }
 
@@ -97,7 +96,6 @@ class Clientes extends Component
     public function edit($id)
     {
         $record = Cliente::findOrFail($id);
-
         $this->selected_id = $id;
 		$this->nombre = $record-> nombre;
 		$this->apellidos = $record-> apellidos;
