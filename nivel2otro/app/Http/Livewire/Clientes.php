@@ -14,7 +14,7 @@ class Clientes extends Component
 	protected $paginationTheme = 'bootstrap';
     public $selected_id, $keyWord, $nombre, $apellidos, $direccion, $email;
     public $updateMode = false;
-    public $countries;
+   // public $countries;
 
 
     // @gmail.com
@@ -30,10 +30,7 @@ class Clientes extends Component
 
 
     public function mount(){
-        $asia = Continent::getByCode('AS');
-        $countries = $asia->countries()->get();
-        // or use children method
-        $countries = $asia->children();
+
     }
 
 
@@ -41,8 +38,7 @@ class Clientes extends Component
     {
 
 
-        $asia = Continent::getByCode('AS');
-        $countries = $asia->countries()->get();
+
 
 		$keyWord = '%'.$this->keyWord .'%';
         return view('livewire.clientes.view', [
@@ -52,9 +48,9 @@ class Clientes extends Component
 						->orWhere('direccion', 'LIKE', $keyWord)
 						->orWhere('email', 'LIKE', $keyWord)
 						->paginate(10),
-                        'countries'=>$countries,
-                        'country'=>0,
-                        'city'=>0
+                       // 'countries'=>$countries,
+                       // 'country'=>0,
+                       // 'city'=>0
         ]);
     }
 
