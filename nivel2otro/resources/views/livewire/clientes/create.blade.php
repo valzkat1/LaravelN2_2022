@@ -27,6 +27,7 @@
                 <input wire:model="email" type="text" class="form-control" id="email" placeholder="Email">@error('email') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
 
+            @include('livewire.dropdowns',['country'=>0,'city'=>0])
                 </form>
             </div>
             <div class="modal-footer">

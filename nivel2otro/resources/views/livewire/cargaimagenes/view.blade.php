@@ -42,7 +42,7 @@
 							<tr>
 								<td>{{ $loop->iteration }}</td>
 								<td>{{ $row->nombreimagen }}</td>
-								<td><img src="{{ asset('storage/imagenes/'.$row->imagen) }}"  width="40"/ ></td>
+								<td>  @include('livewire.marcoimagen',['imagen'=>$row->imagen])</td>
 								<td width="90">
 								<div class="btn-group">
 									<button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

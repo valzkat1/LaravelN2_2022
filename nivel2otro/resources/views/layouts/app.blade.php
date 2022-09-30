@@ -37,23 +37,21 @@
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
-                            <a href="{{ url('/cargaimagenes') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Cargaimagenes</a> 
+                            <a href="{{ url('/cargaimagenes') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Cargaimagenes</a>
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/clientes') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Clientes</a> 
+                            <a href="{{ url('/clientes') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Clientes</a>
+                        </li>
+
+						<li class="nav-item">
+                            <a href="{{ url('/empleados') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Empleados</a>
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/clientes2') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Clientes2</a> 
-                        </li>
-						<li class="nav-item">
-                            <a href="{{ url('/empleados') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Empleados</a> 
-                        </li>
-						<li class="nav-item">
-                            <a href="{{ url('/actividades') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Actividades</a> 
+                            <a href="{{ url('/actividades') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Actividades</a>
                         </li>
                     </ul>
 					@endauth()
-					
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -63,7 +61,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>

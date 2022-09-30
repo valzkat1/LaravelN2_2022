@@ -12,14 +12,11 @@
                 <form>
 					<input type="hidden" wire:model="selected_id">
             <div class="form-group">
-                <label for="nombreimagen"></label>
+                <label for="nombreimagen">Titulo Imagen</label>
                 <input wire:model="nombreimagen" type="text" class="form-control" id="nombreimagen" placeholder="Nombreimagen">@error('nombreimagen') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
-            <div class="form-group">
-                <img src="{{ asset('storage/imagenes/'.$imagen) }}"  width="80">
-            </div>
+              @include('livewire.marcoimagen')
 
-            <div class="form-group">
                 <label for="imagen"></label>
                 <input wire:model="imagen" type="file" class="form-control" id="imagen" placeholder="Imagen">@error('imagen') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>

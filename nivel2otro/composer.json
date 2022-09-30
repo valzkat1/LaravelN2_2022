@@ -9,6 +9,7 @@
         "flightsadmin/livewire-crud": "^0.0.17",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "khsing/world": "^9.0",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
