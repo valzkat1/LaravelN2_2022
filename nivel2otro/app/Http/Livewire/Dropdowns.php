@@ -26,7 +26,7 @@ class Dropdowns extends Component
     {
 
         if(!empty($this->country)){
-            $this->cities= Country::where('country_id',$this->country)->get();
+            $this->cities= City::where('country_id',$this->country)->get();
         }
         return view('livewire.dropdowns')->withCountries(Country::orderBy('name')->get());
 
